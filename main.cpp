@@ -1,6 +1,8 @@
 #include <SFML/Graphics.hpp>
 #include "PixelGrid.hpp"
 #include "LineDrawer.hpp"
+#include "ShapeDrawer.hpp"
+
 
 int main()
 {
@@ -13,6 +15,9 @@ int main()
 
 	sf::RenderWindow window(sf::VideoMode(PX_COUNT_X * PX_SIZE, PX_COUNT_Y * PX_SIZE), "PIXELS!", sf::Style::Close);
 	window.setFramerateLimit(60);
+
+	draw_straight_line(&vertex_arr);
+
 	while (window.isOpen())
 	{
 		window.clear();
