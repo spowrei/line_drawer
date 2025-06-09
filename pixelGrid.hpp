@@ -3,9 +3,9 @@
 
 #include <SFML/Graphics.hpp>
 
-#define PX_COUNT_X 90
-#define PX_COUNT_Y 60
-#define PX_SIZE 10
+#define PX_COUNT_X 450
+#define PX_COUNT_Y 300
+#define PX_SIZE 2
 
 #define DEFAULT_COLOR_1 sf::Color (100,100,100)
 #define DEFAULT_COLOR_2 sf::Color (150,150,150)
@@ -19,4 +19,3 @@ void index_to_quads(sf::VertexArray *vertex_arr, int index, void (*func)(sf::Ver
 void paint_quads(sf::VertexArray *vertex_arr, int quad_index);
 
 #endif
-#pragma once

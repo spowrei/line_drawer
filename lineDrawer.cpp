@@ -12,7 +12,7 @@ void draw_the_line(sf::VertexArray *vertex_arr, int begin_index, int end_index)
     int direction_x = (x1 < x2) ? 1 : -1;
     int direction_y = (y1 < y2) ? 1 : -1;
     int err = len_x - len_y;
-
+    
     while (1)
     {
         index_to_quads(vertex_arr, x1 + y1 * PX_COUNT_X, paint_quads);
