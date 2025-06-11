@@ -8,28 +8,17 @@ static int index_giver(int y, int x, int z)
 	return (pos_x + PX_COUNT_X * pos_y);
 }
 
-void draw_shape(sf::VertexArray *vertex_arr)
+void draw_shape(sf::VertexArray *vertex_arr, std::vector<int> map, int map_size)
 {
-	int matris[7][7] = {
-	{0,1,2,3,2,1,0},
-	{0,1,2,3,2,1,0},
-	{0,1,2,3,2,1,0},
-	{0,1,2,3,2,1,0},
-	{0,1,2,3,2,1,0},
-	{0,1,2,3,2,1,0},
-	{0,1,2,3,2,1,0}
-	};
-
-
 	std::cout << "a\n";
-	for (int y = 0; y < 7; y++)
+	for (int y = 0; y < map_size; y++)
 	{
-		for (int x = 0; x < 7; x++)
+		for (int x = 0; x < map_size; x++)
 		{
-			if (y < 6)
-				draw_the_line(vertex_arr, index_giver(y, x, matris[y][x]), index_giver(y + 1, x, matris[y+1][x]));
-			if (x < 6)
-				draw_the_line(vertex_arr, index_giver(y, x, matris[y][x]), index_giver(y, x + 1, matris[y][x+1]));
+			if (y < map_size - 1)
+				draw_the_line(vertex_arr, index_giver(y, x, map[y * map_size + x]), index_giver(y + 1, x, map[(y + 1) * map_size + x]));
+			if (x < map_size - 1)
+				draw_the_line(vertex_arr, index_giver(y, x, map[y * map_size + x]), index_giver(y, x + 1, map[y * map_size + (x + 1)]));
 		}
 	}
 	std::cout << "b\n";

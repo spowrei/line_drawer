@@ -1,23 +1,28 @@
 #include <SFML/Graphics.hpp>
-#include "PixelGrid.hpp"
+#include <vector>
 #include "LineDrawer.hpp"
 #include "ShapeDrawer.hpp"
-
+#include "readFile.hpp"
+#include <iostream>
 
 int main()
 {
 	sf::VertexArray vertex_arr(sf::Quads, PX_COUNT_X * PX_COUNT_Y * 4);
 	set_px_pos(vertex_arr);
 
-	int c_count = -1;
-	sf::Vector2i c_pos[2];
-	bool c_drawn = true;
+	std::vector<int> map;
+	int map_size = read_file(map);
+	std::cout << "ddddd  " << map_size << "  bbbbb\n";
 
 	sf::RenderWindow window(sf::VideoMode(PX_COUNT_X * PX_SIZE, PX_COUNT_Y * PX_SIZE), "PIXELS!", sf::Style::Close);
 	window.setFramerateLimit(60);
 
-	draw_straight_line(&vertex_arr);
+	draw_shape(&vertex_arr, map, map_size);
 
+
+	int c_count = -1;
+	sf::Vector2i c_pos[2];
+	bool c_drawn = true;
 	while (window.isOpen())
 	{
 		window.clear();
